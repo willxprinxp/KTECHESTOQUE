@@ -1,4 +1,4 @@
-# KTECHESTOQUE
+# KTECHESTOQUE-1
  #Um programa de estoque para Kumon's
 
  Essa é a primeira versão de meu primeiro projeto na programação. Fiz essa projeto para ajudar no controle de estoque do Kumon da minha cidade onde eu sou bolsista pois,
