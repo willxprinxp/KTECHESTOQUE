@@ -18,9 +18,8 @@ label_title.grid(row=0, column=0, columnspan=3, sticky='NSWE')
 
 label_estoque = tk.Label(text='Selecione o estoque que deseja MODIFICAR:', bg='lightblue')
 label_estoque.grid(row=1, column=0, columnspan=3, sticky='NSWE', padx=10, pady=10)
-# label_estoque_for_bm = tk.Label(text='Estoques:', bg='lightblue').grid(row=2, column=0, sticky='NSWE')
 
-estoques = ['Lingua Patria', 'Matematica', 'Ingles', 'Cood.Motora', 'B.Matricula']
+estoques = ['Lingua Patria', 'Matematica', 'Ingles', 'Coord.Motora', 'B.Matricula']
 var_estoque = tk.StringVar(value='vazio')
 var_do = tk.IntVar(value=2)
 
@@ -30,7 +29,7 @@ button_mt = tk.Radiobutton(text='Matemática', bg='#438FEB', variable=var_estoqu
 button_mt.grid(row=2, column=1, sticky='NSWE')
 button_en = tk.Radiobutton(text='Inglês', bg='#FF1111', variable=var_estoque, value='Inglês')
 button_en.grid(row=3, column=1, sticky='NSWE')
-button_cm = tk.Radiobutton(text='Cood.Motora', bg='#0BAD1E', variable=var_estoque, value='Cood.Motora')
+button_cm = tk.Radiobutton(text='Cood.Motora', bg='#0BAD1E', variable=var_estoque, value='Coord.Motora')
 button_cm.grid(row=3, column=2, sticky='NSWE')
 button_bm = tk.Radiobutton(text='B.Matrícula', bg='#021498', variable=var_estoque, value='B.Matrícula')
 button_bm.grid(row=2, column=2, sticky='NSWE')
