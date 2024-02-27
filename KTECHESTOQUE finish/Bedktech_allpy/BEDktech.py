@@ -42,7 +42,7 @@ estagio.grid(row=4, column=1, sticky='nsew', padx=10, pady=10)
 
 label_bloco = tk.Label(text='Bloco da modificação: ', bg='lightblue')
 label_bloco.grid(row=5, column=0, sticky='nsew', padx=10, pady=10)
-blocos = ('1', '11', '21', '31', '41', '51', '61', '71', '81', '91', '101', '111', '121', '131', '141', '151', '161', '171', '181', '191', 'TSB')
+blocos = ('1', '11', '21', '31', '41', '51', '61', '71', '81', '91', '101', '111', '121', '131', '141', '151', '161', '171', '181', '191', 'TXB')
 bloco = ttk.Combobox(root, values=blocos)
 bloco.grid(row=5, column=1, padx=10, pady=10)
 
