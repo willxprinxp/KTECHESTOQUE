@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import os
 import pandas as pd
 import numpy as np
 import shutil
@@ -8,7 +9,8 @@ excel = pd.ExcelFile('Planilhas\KTECH_ESTOQUEPRIMESUB.xlsx')
 todas_as_planilhas = {nome: excel.parse(nome) for nome in excel.sheet_names}
 
 root = tk.Tk()
-root.iconbitmap('icon\Amasia.ico')
+icon_path = os.path.join(os.path.dirname(__file__), 'icon', 'Amasia.ico')
+root.iconbitmap(icon_path)
 root.title('KTECHESTOQUE')
 root.configure(bg='lightblue')
 root.columnconfigure([0, 1, 2], weight=1)
