@@ -8,6 +8,7 @@ excel = pd.ExcelFile('Planilhas\KTECH_ESTOQUEPRIMESUB.xlsx')
 todas_as_planilhas = {nome: excel.parse(nome) for nome in excel.sheet_names}
 
 root = tk.Tk()
+root.iconbitmap('icon\Amasia.ico')
 root.title('KTECHESTOQUE')
 root.configure(bg='lightblue')
 root.columnconfigure([0, 1, 2], weight=1)
