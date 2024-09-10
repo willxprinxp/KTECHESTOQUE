@@ -3,7 +3,8 @@ import tkinter as tk
 from tkinter import*
 import tkinter.filedialog as tkfiledialog
 
-class Screen():
+class ConfigScreen():
+
 
     def __init__(self, title, bg):
         self.window = Tk()
@@ -16,7 +17,7 @@ class Screen():
         self.window.geometry(f'{screen_width}x{screen_height}')
 
         self.button = None
-        self.wtwd = None
+        # self.wtwd = None
 
         #Talvez self.var_stock e var_do tenham que estar em lib_back.py
         self.var_stock = None
@@ -26,6 +27,12 @@ class Screen():
         self.window.mainloop()
     
 
+class Screen(ConfigScreen):
+
+
+    def __init__(self, )
+
+
     def create_frame(self, wtwd=None, bg=None):
         frame = Frame(self.wtwd, bg=bg)
         return frame
@@ -33,8 +40,8 @@ class Screen():
 
 
     
-    def create_button(self, wtwd, text, bg, command):
-        button = tk.Button(self.wtwd, text=text, bg=bg, command=command)
+    def create_button(self, text, bg, command):
+        button = tk.Button(self.window, text=text, bg=bg, command=command)
         return button
 
 
@@ -73,7 +80,8 @@ class Screen():
 
 
 
-
+    def button_clicked(self, text):
+        return print(text)
 
     
 
