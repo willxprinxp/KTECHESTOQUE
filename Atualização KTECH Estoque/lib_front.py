@@ -3,40 +3,18 @@ import tkinter as tk
 from tkinter import*
 import tkinter.filedialog as tkfiledialog
 
-class ConfigScreen():
+
+class Screen():
 
 
-    def __init__(self, title, bg):
-        self.window = Tk()
-        self.window.resizable()
-        self.window.title(title)
-        self.bg = self.window.configure(bg=bg)
-
-        screen_width = self.window.winfo_screenwidth()
-        screen_height = self.window.winfo_screenheight()
-        self.window.geometry(f'{screen_width}x{screen_height}')
-
-        self.button = None
-        # self.wtwd = None
-
-        #Talvez self.var_stock e var_do tenham que estar em lib_back.py
-        self.var_stock = None
-        self.var_do = None
-
-    def start_screen (self):
-        self.window.mainloop()
-    
-
-class Screen(ConfigScreen):
+    def __init__(self, screen_conf):
+        self.screen_conf = screen_conf
+        self.window = self.screen_conf.window
 
 
-    def __init__(self, )
-
-
-    def create_frame(self, wtwd=None, bg=None):
-        frame = Frame(self.wtwd, bg=bg)
+    def create_frame(self, bg=None):
+        frame = Frame(self.window, bg=bg)
         return frame
-        '''wtwd is (what window?)'''
 
 
     
@@ -45,13 +23,13 @@ class Screen(ConfigScreen):
         return button
 
 
-    def create_cbox(self, wtwd, values=None):
-        cbox = ttk.Combobox(self.wtwd, values=values)
+    def create_cbox(self, values=None):
+        cbox = ttk.Combobox(self.window, values=values)
         return cbox
     
 
-    def create_radbton(self, wtwd, text, bg, variable=None, value=None):
-        radbton = tk.Radiobutton(self.wtwd, text=text, bg=bg, variable=variable, value=value)
+    def create_radbton(self, text, bg, variable=None, value=None):
+        radbton = tk.Radiobutton(self.window, text=text, bg=bg, variable=variable, value=value)
         return radbton
 
     def var_do(self, valueINT):
@@ -64,8 +42,8 @@ class Screen(ConfigScreen):
         
 
 
-
-    # def create_label(self, wtwd, text, bg= None, fg= None, ):
+# Parei aqui!! :) Boa sorte :)
+    # def create_label(self, text, bg= None, fg= None, ):
 
 
 
@@ -75,16 +53,13 @@ class Screen(ConfigScreen):
 
 
 
-    def create_new_window_button(self, wtwd, text, bg):
-        return self.create_button(wtwd, text, bg, command=lambda: self.new_window(text))
 
-
-
+    # for test
     def button_clicked(self, text):
-        return print(text)
+        return lambda: print(text) #colocar lambda antes dos comandos que não precisam ser iniciados automaticamente
+        
 
     
-
 
 # Arrumar função antes de usar-la pois ela só pode ser criada e não tem como adicionar nada na janela.
     def new_window(self, title):
@@ -94,14 +69,26 @@ class Screen(ConfigScreen):
         younger_window.transient(self.window)
         younger_window.title(title)
         return younger_window
-'''Caso seja preciso criar uma tela secundária maior, dar uma olhada no exemplo
- do pyCharm sobre agencias para criar uma classe ao invés de uma função'''
-
-# ^
-# |
-# |
-
-'''Será preciso pois não consigo adicionar coisas dentro de uma Toplevel'''
 
 
-# class 
+
+class ConfigScreen(Screen):
+
+
+    def __init__(self, title, bg):
+        self.window = Tk()
+        self.window.resizable()
+        self.window.title(title)
+        self.bg = self.window.configure(bg=bg)
+
+        screen_width = self.window.winfo_screenwidth()
+        screen_height = self.window.winfo_screenheight()
+        self.window.geometry(f'{screen_width}x{screen_height}')
+
+        #Talvez self.var_stock e var_do tenham que estar em lib_back.py
+        self.var_stock = None
+        self.var_do = None
+
+    def start_screen (self):
+        self.window.mainloop()
+    
