@@ -42,8 +42,38 @@ class Screen():
         
 
 
-# Parei aqui!! :) Boa sorte :)
-    # def create_label(self, text, bg= None, fg= None, ):
+    def create_label(self,
+                 text, 
+                 bg,      
+                 anchor=None,       
+                 height=None,              
+                 width=None,              
+                 bd=None,                  
+                 font=None, 
+                 cursor=None,             
+                 padx=None,               
+                 pady=None,                
+                 justify=None,    
+                 relief=None,     
+                 underline=None,           
+                 wraplength=None):
+
+        return tk.Label(self.window,
+         text=text,
+          bg=bg,
+           fg=ConfigScreen.bg,
+            anchor=tk.anchor,
+             height=height,
+              width=width,
+               bd=bd,
+                font=font,
+                 cursor=cursor,
+                  padx=padx,
+                   pady=pady,
+                    justify=tk.justify,
+                     relief=tk.relief,
+                      underline=underline,
+                       wraplength=wraplength)
 
 
 
@@ -70,7 +100,7 @@ class Screen():
         younger_window.title(title)
         return younger_window
 
-
+Vê o pq do Screen dentro da Classe talvez não precise..
 
 class ConfigScreen(Screen):
 
