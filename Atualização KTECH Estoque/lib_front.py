@@ -44,7 +44,7 @@ class Screen():
 
     def create_label(self,
                  text, 
-                 bg,      
+                 bg,
                  anchor=None,       
                  height=None,              
                  width=None,              
@@ -61,8 +61,8 @@ class Screen():
         return tk.Label(self.window,
          text=text,
           bg=bg,
-           fg=ConfigScreen.bg,
-            anchor=tk.anchor,
+           fg=self.screen_conf.bg,
+            anchor=anchor,
              height=height,
               width=width,
                bd=bd,
@@ -70,8 +70,8 @@ class Screen():
                  cursor=cursor,
                   padx=padx,
                    pady=pady,
-                    justify=tk.justify,
-                     relief=tk.relief,
+                    justify=justify,
+                     relief=relief,
                       underline=underline,
                        wraplength=wraplength)
 
@@ -100,7 +100,7 @@ class Screen():
         younger_window.title(title)
         return younger_window
 
-Vê o pq do Screen dentro da Classe talvez não precise..
+# Vê o pq do Screen dentro da Classe talvez não precise..
 
 class ConfigScreen(Screen):
 
@@ -109,11 +109,12 @@ class ConfigScreen(Screen):
         self.window = Tk()
         self.window.resizable()
         self.window.title(title)
-        self.bg = self.window.configure(bg=bg)
+        self.window.configure(bg=bg)
+        self.bg = bg
 
-        screen_width = self.window.winfo_screenwidth()
-        screen_height = self.window.winfo_screenheight()
-        self.window.geometry(f'{screen_width}x{screen_height}')
+        self.screen_width = self.window.winfo_screenwidth()
+        self.screen_height = self.window.winfo_screenheight()
+        self.window.geometry(f'{self.screen_width}x{self.screen_height}')
 
         #Talvez self.var_stock e var_do tenham que estar em lib_back.py
         self.var_stock = None
