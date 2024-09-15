@@ -108,33 +108,31 @@ class ConfigScreen(Screen):
 
 
     def __init__(self, title, bg):
-        self.window = Tk()
-        self.window.resizable()
-        self.window.title(title)
-        self.window.configure(bg=bg)
+        self.window = None
         self.bg = bg
+        self.title = title
+        self.screen_width = None
+        self.screen_height = None
 
-        self.screen_width = self.window.winfo_screenwidth()
-        self.screen_height = self.window.winfo_screenheight()
-        self.window.geometry(f'{self.screen_width}x{self.screen_height}')
+    def create_and_init_window(self):
+        if self.window is None or not self.window.winfo_exists():
 
-        #Talvez self.var_stock e var_do tenham que estar em lib_back.py
-        self.var_stock = None
-        self.var_do = None
+            self.window = Tk()
+            self.window.resizable()
+            self.window.title(self.title)
+            self.window.configure(bg=self.bg)
 
+            self.config_screen_width = self.window.winfo_screenwidth()
+            self.config_screen_height = self.window.winfo_screenheight()
+            self.screen_width = self.config_screen_width
+            self.screen_height = self.config_screen_height
+            self.window.geometry(f'{self.screen_width}x{self.screen_height}')
 
+            #Talvez self.var_stock e var_do tenham que estar em lib_back.py
+            self.var_stock = None
+            self.var_do = None
 
-    def start_screen (self):
-        self.window.mainloop()
-
-
-    def cmd_show_screen(self):
-        self.window.withdraw()
-        
-        def show_screen():
-
-            self.window.deiconify()
-            # self.window.protocol("WM_DELETE_WINDOW", self.window.withdraw())
             self.window.mainloop()
 
-        return show_screen
+        else:
+            self.window.deiconify()
