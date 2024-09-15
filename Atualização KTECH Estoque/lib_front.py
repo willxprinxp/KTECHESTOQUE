@@ -100,7 +100,9 @@ class Screen():
         younger_window.title(title)
         return younger_window
 
-# Vê o pq do Screen dentro da Classe talvez não precise..
+
+
+
 
 class ConfigScreen(Screen):
 
@@ -120,6 +122,19 @@ class ConfigScreen(Screen):
         self.var_stock = None
         self.var_do = None
 
+
+
     def start_screen (self):
         self.window.mainloop()
-    
+
+
+    def cmd_show_screen(self):
+        self.window.withdraw()
+        
+        def show_screen():
+
+            self.window.deiconify()
+            # self.window.protocol("WM_DELETE_WINDOW", self.window.withdraw())
+            self.window.mainloop()
+
+        return show_screen
