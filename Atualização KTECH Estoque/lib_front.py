@@ -92,13 +92,13 @@ class Screen():
     
 
 # Arrumar função antes de usar-la pois ela só pode ser criada e não tem como adicionar nada na janela.
-    def new_window(self, title):
-        '''deve ser passada para um botão'''
-        '''must be assigned to a button'''
+    '''def new_window(self, title):
+        deve ser passada para um botão
+        must be assigned to a button
         younger_window = tk.Toplevel(self.window)
         younger_window.transient(self.window)
         younger_window.title(title)
-        return younger_window
+        return younger_window'''
 
 
 
@@ -114,7 +114,7 @@ class ConfigScreen(Screen):
         self.screen_width = None
         self.screen_height = None
 
-    def create_and_init_window(self):
+    def create_window(self):
         if self.window is None or not self.window.winfo_exists():
 
             self.window = Tk()
@@ -132,7 +132,9 @@ class ConfigScreen(Screen):
             self.var_stock = None
             self.var_do = None
 
-            self.window.mainloop()
+    def new_window(self):
+        return lambda: self.create_window()
 
-        else:
-            self.window.deiconify()
+    def init_window(self):
+        if self.window is not None:
+            self.window.mainloop()
