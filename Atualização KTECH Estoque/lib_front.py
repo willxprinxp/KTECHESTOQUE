@@ -124,6 +124,8 @@ class ConfigScreen(Screen):
             if self.screen_width and self.screen_height != None:
                 self.window.geometry(f'{self.screen_width}x{self.screen_height}')
             
+            # Criar uma lógica onde a tela abra no centro da tela!!
+
             else:
                 self.config_screen_width = self.window.winfo_screenwidth()
                 self.config_screen_height = self.window.winfo_screenheight()
