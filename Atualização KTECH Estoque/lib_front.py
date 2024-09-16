@@ -107,12 +107,12 @@ class Screen():
 class ConfigScreen(Screen):
 
 
-    def __init__(self, title, bg):
+    def __init__(self, title, bg, width=None, height=None):
         self.window = None
         self.bg = bg
         self.title = title
-        self.screen_width = None
-        self.screen_height = None
+        self.screen_width = width
+        self.screen_height = height
 
     def create_window(self):
         if self.window is None or not self.window.winfo_exists():
@@ -121,21 +121,21 @@ class ConfigScreen(Screen):
             self.window.resizable()
             self.window.title(self.title)
             self.window.configure(bg=self.bg)
-
-            self.config_screen_width = self.window.winfo_screenwidth()
-            self.config_screen_height = self.window.winfo_screenheight()
-            self.screen_width = self.config_screen_width
-            self.screen_height = self.config_screen_height
-            self.window.geometry(f'{self.screen_width}x{self.screen_height}')
+            if self.screen_width and self.screen_height != None:
+                self.window.geometry(f'{self.screen_width}x{self.screen_height}')
+            
+            else:
+                self.config_screen_width = self.window.winfo_screenwidth()
+                self.config_screen_height = self.window.winfo_screenheight()
+                self.screen_width = self.config_screen_width
+                self.screen_height = self.config_screen_height
+                self.window.geometry(f'{self.screen_width}x{self.screen_height}')
 
             #Talvez self.var_stock e var_do tenham que estar em lib_back.py
             self.var_stock = None
             self.var_do = None
 
         
-    def modify_wh(self, width, height):
-        self.create_window().screen_width = width
-        self.create_window().screen_height = height
 
     def cmd_new_window(self):
         return lambda: self.create_window()
