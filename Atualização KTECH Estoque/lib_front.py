@@ -132,7 +132,12 @@ class ConfigScreen(Screen):
             self.var_stock = None
             self.var_do = None
 
-    def new_window(self):
+        
+    def modify_wh(self, width, height):
+        self.create_window().screen_width = width
+        self.create_window().screen_height = height
+
+    def cmd_new_window(self):
         return lambda: self.create_window()
 
     def init_window(self):

@@ -1,16 +1,10 @@
 from lib_front import*
 
-init_screen = ConfigScreen('Janela teste', 'lightblue')
-init_screen.create_window()
+log_screen = ConfigScreen('Login - KTECH Estoque', 'lightblue')
+log_screen.modify_wh(100, 100)
 
-log_screen = ConfigScreen('Log Teste', 'lightblue')
+front_log = Screen(log_screen)
+title_log = front_log.create_label('Login Ktech Estoque', 'white')
+# log_screen.to_add(title_log, )
 
-screen_front = Screen(init_screen)
-
-label_test = screen_front.create_label('KTECHESTOQUE', 'white')
-init_screen.to_add(label_test, init_screen.screen_width, 25)
-
-button_test = screen_front.create_button('New Button', 'red', log_screen.new_window())
-init_screen.to_add(button_test, 100, 100)
-
-init_screen.init_window()
+log_screen.init_window()
