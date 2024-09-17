@@ -39,6 +39,7 @@ class Screen():
             show=None):
 
         return tk.Entry(self.window,
+        text=text,
          bg=bg,
           bd=bd,
            font=font,
