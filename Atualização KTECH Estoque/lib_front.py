@@ -28,6 +28,27 @@ class Screen():
         return cbox
     
 
+    def create_entry(self,
+     text,
+      bg=None,
+       bd=None,
+        font=None,
+         fg=None,
+          justify=None,
+           relief=None,
+            show=None):
+
+        return tk.Entry(self.window,
+         bg=bg,
+          bd=bd,
+           font=font,
+            fg=fg,
+             justify=justify,
+              relief=relief,
+               show=show)
+        
+
+
     def create_radbton(self, text, bg, variable=None, value=None):
         radbton = tk.Radiobutton(self.window, text=text, bg=bg, variable=variable, value=value)
         return radbton
