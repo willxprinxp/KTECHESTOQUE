@@ -143,17 +143,16 @@ class ConfigScreen(Screen):
             self.window.resizable()
             self.window.title(self.title)
             self.window.configure(bg=self.bg)
-            if self.screen_width and self.screen_height != None:
-                self.window.geometry(f'{self.screen_width}x{self.screen_height}')
-            
-            # Criar uma lógica onde a tela abra no centro da tela!!
+            if self.screen_width is not None and self.screen_height is not None:
 
-            else:
                 self.config_screen_width = self.window.winfo_screenwidth()
                 self.config_screen_height = self.window.winfo_screenheight()
-                self.screen_width = self.config_screen_width
-                self.screen_height = self.config_screen_height
-                self.window.geometry(f'{self.screen_width}x{self.screen_height}')
+                w = (self.config_screen_width//2) - (self.screen_width//2)
+                h = (self.config_screen_height//2) - (self.screen_height//2)
+                self.window.geometry(f'{self.screen_width}x{self.screen_height}+{w}+{h}')
+
+            else:
+                self.window.geometry(f'{self.window.winfo_screenwidth()}x{self.window.winfo_screenheight()}')
 
             #Talvez self.var_stock e var_do tenham que estar em lib_back.py
             self.var_stock = None
