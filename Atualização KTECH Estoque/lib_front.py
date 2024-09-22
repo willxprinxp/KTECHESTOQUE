@@ -54,6 +54,7 @@ class Screen():
         radbton = tk.Radiobutton(self.window, text=text, bg=bg, variable=variable, value=value)
         return radbton
 
+
     def var_do(self, valueINT):
         self.var_do = tk.IntVar(value=valueINT)
         return self.var_do
@@ -110,59 +111,3 @@ class Screen():
     def button_clicked(self, text):
         return lambda: print(text) #colocar lambda antes dos comandos que não precisam ser iniciados automaticamente
         
-
-    
-
-# Arrumar função antes de usar-la pois ela só pode ser criada e não tem como adicionar nada na janela.
-    '''def new_window(self, title):
-        deve ser passada para um botão
-        must be assigned to a button
-        younger_window = tk.Toplevel(self.window)
-        younger_window.transient(self.window)
-        younger_window.title(title)
-        return younger_window'''
-
-
-
-
-
-class ConfigScreen(Screen):
-
-
-    def __init__(self, title, bg, width=None, height=None):
-        self.window = None
-        self.bg = bg
-        self.title = title
-        self.screen_width = width
-        self.screen_height = height
-
-    def create_window(self):
-        if self.window is None or not self.window.winfo_exists():
-
-            self.window = Tk()
-            self.window.title(self.title)
-            self.window.configure(bg=self.bg)
-            if self.screen_width is not None and self.screen_height is not None:
-
-                self.config_screen_width = self.window.winfo_screenwidth()
-                self.config_screen_height = self.window.winfo_screenheight()
-                w = (self.config_screen_width//2) - (self.screen_width//2)
-                h = (self.config_screen_height//2) - (self.screen_height//2)
-                self.window.geometry(f'{self.screen_width}x{self.screen_height}+{w}+{h}')
-                self.window.resizable(False, False)
-
-            else:
-                self.window.geometry(f'{self.window.winfo_screenwidth()}x{self.window.winfo_screenheight()}')
-
-            #Talvez self.var_stock e var_do tenham que estar em lib_back.py
-            self.var_stock = None
-            self.var_do = None
-
-        
-
-    def cmd_new_window(self):
-        return lambda: self.create_window()
-
-    def init_window(self):
-        if self.window is not None:
-            self.window.mainloop()

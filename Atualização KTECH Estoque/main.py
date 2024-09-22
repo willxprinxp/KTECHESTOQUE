@@ -1,6 +1,7 @@
 from lib_front import*
+from lib_config import*
 
-log_screen = ConfigScreen('Login - KTECH Estoque', 'lightblue', 300, 200)
+log_screen = ConfigScreen('Login - KTECH Estoque', 'lightblue', 400, 550)
 log_screen.create_window()
 
 front_log = Screen(log_screen)
