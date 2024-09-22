@@ -140,7 +140,6 @@ class ConfigScreen(Screen):
         if self.window is None or not self.window.winfo_exists():
 
             self.window = Tk()
-            self.window.resizable()
             self.window.title(self.title)
             self.window.configure(bg=self.bg)
             if self.screen_width is not None and self.screen_height is not None:
@@ -150,6 +149,7 @@ class ConfigScreen(Screen):
                 w = (self.config_screen_width//2) - (self.screen_width//2)
                 h = (self.config_screen_height//2) - (self.screen_height//2)
                 self.window.geometry(f'{self.screen_width}x{self.screen_height}+{w}+{h}')
+                self.window.resizable(False, False)
 
             else:
                 self.window.geometry(f'{self.window.winfo_screenwidth()}x{self.window.winfo_screenheight()}')
