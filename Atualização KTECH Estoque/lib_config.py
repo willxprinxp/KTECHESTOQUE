@@ -1,10 +1,11 @@
+import os
 from lib_front import*
 
 
 class ConfigScreen(Screen):
 
 
-    def __init__(self, title, bg, width=None, height=None):
+    def __init__(self, title, bg, width=None, height=None, icon=None):
         self.window = None
         self.bg = bg
         self.title = title
@@ -14,6 +15,8 @@ class ConfigScreen(Screen):
     def create_window(self):
         if self.window is None or not self.window.winfo_exists():
             self.window = Tk()
+            self.icon = os.path.join(os.path.dirname(__file__),'images','Amasia.ico')
+            self.window.iconbitmap(self.icon)
             self.window.title(self.title)
             self.window.configure(bg=self.bg)
 
