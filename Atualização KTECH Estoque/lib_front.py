@@ -36,7 +36,8 @@ class Screen():
          fg=None,
           justify=None,
            relief=None,
-            show=None):
+            show=None,
+             width=None):
 
         return tk.Entry(self.window,
         text=text,
@@ -46,7 +47,8 @@ class Screen():
             fg=fg,
              justify=justify,
               relief=relief,
-               show=show)
+               show=show,
+                width=width)
         
 
 
@@ -67,10 +69,11 @@ class Screen():
 
     def create_label(self,
                  text, 
-                 bg,
+                 fg,
+                 bg=None,
                  anchor=None,       
-                 height=None,              
                  width=None,              
+                 height=None,              
                  bd=None,                  
                  font=None, 
                  cursor=None,             
@@ -83,8 +86,8 @@ class Screen():
 
         return tk.Label(self.window,
          text=text,
-          bg=bg,
-           fg=self.screen_conf.bg,
+          fg=fg,
+           bg=bg,
             anchor=anchor,
              height=height,
               width=width,
@@ -100,10 +103,8 @@ class Screen():
 
 
 
-    def to_add(self, what, width, height, x= None, y= None, relx= None, rely= None, anchor= None):
-        what.place(width=width, height=height, x=x, y=y, relx=relx, rely=rely, anchor=anchor)
-        '''anchor é bugado mas 'center' funciona'''
-
+    def to_add(self, what, **kwargs):
+        what.place(**kwargs)
 
 
 
