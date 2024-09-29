@@ -18,9 +18,8 @@ class Screen():
 
 
     
-    def create_button(self, text, bg, command):
-        button = tk.Button(self.window, text=text, bg=bg, command=command)
-        return button
+    def create_button(self, text, **kwargs):
+        return tk.Button(self.window, text=text, **kwargs)
 
 
     def create_cbox(self, values=None):
@@ -107,6 +106,8 @@ class Screen():
         what.place(**kwargs)
 
 
+    def destroy_window(self):
+        return lambda: self.window.destroy()
 
     # for test
     def button_clicked(self, text):
