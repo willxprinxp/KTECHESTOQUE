@@ -22,9 +22,9 @@ class ConfigScreen(Screen):
             self.config_screen_height = self.window.winfo_screenheight()
 
             if self.screen_width is not None and self.screen_height is not None:
-                w = (self.config_screen_width//2) - (self.screen_width//2)
-                h = (self.config_screen_height//2) - (self.screen_height//2)
-                self.window.geometry(f'{self.screen_width}x{self.screen_height}+{w}+{h}')
+                self.w = (self.config_screen_width//2) - (self.screen_width//2)
+                self.h = (self.config_screen_height//2) - (self.screen_height//2)
+                self.window.geometry(f'{self.screen_width}x{self.screen_height}+{self.w}+{self.h}')
 
                 self.window.resizable(False, False)
             else:
@@ -32,6 +32,7 @@ class ConfigScreen(Screen):
                 self.screen_height = self.config_screen_height
                 self.window.geometry(f'{self.screen_width}x{self.screen_height}')
 
+            #icon of window
             self.icon = os.path.join(os.path.dirname(__file__),'images','Amasia.ico')
             self.window.iconbitmap(self.icon)
 
