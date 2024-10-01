@@ -32,9 +32,9 @@ wait_unit = front_log.create_label('', 'black', 'white', font=('Arial', 12, 'bol
 log_screen.to_add(wait_unit, x=log_screen.screen_width/3.65, y=240)
 
 
-button_confirm_log = front_log.create_button('Confirm', bg='white', fg=log_screen.bg, command=front_log.button_clicked('O Botão foi clicado'), width=10)
+button_confirm_log = front_log.create_button('Confirm', bg='white', fg='#2BBFD3', command=front_log.button_clicked('O Botão foi clicado'), width=10)
 log_screen.to_add(button_confirm_log, x=58, y=300)
-button_cancel_log = front_log.create_button('Cancel', bg=log_screen.bg, fg='white', command=front_log.destroy_window(),width=10)
+button_cancel_log = front_log.create_button('Cancel', bg=log_screen.bg, fg='white', command=front_log.destroy_window(), width=10)
 log_screen.to_add(button_cancel_log, x=310, y=300)
 
 log_screen.init_window()

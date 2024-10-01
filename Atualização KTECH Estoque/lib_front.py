@@ -17,7 +17,6 @@ class Screen():
         return frame
 
 
-    
     def create_button(self, text, **kwargs):
         return tk.Button(self.window, text=text, **kwargs)
 
