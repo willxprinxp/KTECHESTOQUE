@@ -14,7 +14,7 @@ class ConfigScreen(Screen):
 
     def create_window(self):
         if self.window is None or not self.window.winfo_exists():
-            self.window = Tk()
+            self.window = tk.Tk()
             self.window.title(self.title)
             self.window.configure(bg=self.bg)
 
