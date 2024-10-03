@@ -1,6 +1,6 @@
 from lib_front import*
 from lib_config import*
-
+from lib_back import* #Pode ser mudada para importar apenas o que precisa..
 
 log_screen = ConfigScreen('Login - KTECH Estoque', 'lightblue', 450, 350)
 log_screen.create_window()
