@@ -1,7 +1,5 @@
-import openpyxl as opx
 import tkinter as tk
-from tkinter import*
-import tkinter.filedialog as tkfiledialog
+from PIL import Image, ImageTk
 
 
 class Screen():
@@ -12,9 +10,8 @@ class Screen():
         self.window = self.screen_conf.window
 
 
-    def create_frame(self, bg=None):
-        frame = Frame(self.window, bg=bg)
-        return frame
+    def create_frame(self, bg, **kwargs):
+        return tk.Frame(self.window, bg=bg, **kwargs)
 
 
     def create_button(self, text, **kwargs):
@@ -104,6 +101,10 @@ class Screen():
     def to_add(self, what, **kwargs):
         what.place(**kwargs)
 
+    #icon to widgets
+    def to_icon(self, image, resz):
+        icon = Image.open(image).resize(resz)
+        return ImageTk.PhotoImage(icon)
 
     def destroy_window(self):
         return lambda: self.window.destroy()
