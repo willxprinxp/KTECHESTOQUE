@@ -102,9 +102,11 @@ class Screen():
         what.place(**kwargs)
 
     #icon to widgets
-    def to_icon(self, image, resz):
-        icon = Image.open(image).resize(resz)
-        return ImageTk.PhotoImage(icon)
+    def to_icon(self, path, resz):
+        img = Image.open(path)
+        img = img.resize(resz)
+        return ImageTk.PhotoImage(img)
+
 
     def destroy_window(self):
         return lambda: self.window.destroy()
